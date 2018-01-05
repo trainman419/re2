@@ -3,6 +3,13 @@
 
 #include "re2/unicode_groups.h"
 
+// Silence warnings about missing initializers
+// Note that we test for Clang first because it defines __GNUC__ as well.
+#if defined(__clang__)
+#elif defined(__GNUC__)
+#pragma GCC diagnostic ignored "-Wmissing-field-initializers"
+#endif
+
 namespace re2 {
 
 static const URange16 code1[] = {  /* \d */
